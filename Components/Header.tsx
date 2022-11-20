@@ -10,7 +10,7 @@ export const Header = () => {
     <Box
       mb={{ base: "5rem", md: "8.4rem", lg: "10.3rem" }}
       bg="url('/assets/background.png')"
-      backgroundPosition="20% 65%"
+      backgroundPosition="20% 73%"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
     >

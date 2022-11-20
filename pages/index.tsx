@@ -75,7 +75,7 @@ const Home: NextPage = () => {
                 </Text>
                 <Text
                   fontFamily="'Satoshi', sans-serif"
-                  fontSize="3.0rem"
+                  fontSize={{ base: "2.5rem", md: "3.0rem" }}
                   fontWeight="700"
                   whiteSpace="nowrap"
                 >
@@ -108,7 +108,8 @@ const Home: NextPage = () => {
                 </Text>
                 <Text
                   fontFamily="'Satoshi', sans-serif"
-                  fontSize="3.0rem"
+                  // fontSize="3.0rem"
+                  fontSize={{ base: "2.5rem", md: "3.0rem" }}
                   fontWeight="700"
                   whiteSpace="nowrap"
                 >

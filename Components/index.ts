@@ -5,3 +5,4 @@ export * from './HowItWorks'
 export * from './ImageWithText'
 export * from './HowItWorksMobile'
 export * from "./TabMenu"
+export * from "./Offer"
