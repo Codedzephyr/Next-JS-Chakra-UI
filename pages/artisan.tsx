@@ -9,7 +9,6 @@ const Artisan = () => {
     <Box>
       <Head>
         <title>Artisan</title>
-
         <meta name="description" content="Chase your dreams" />
       </Head>
       <Container maxW="160rem" px="0rem">

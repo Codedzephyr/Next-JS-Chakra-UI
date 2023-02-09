@@ -9,7 +9,7 @@ export const HeaderAlt = () => {
   const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
 
   const Motiondiv = motion(Box);
-  const MotionMove = motion(Center);
+  const MotionMove = motion(Flex);
 
   const navvariant = {
     start: {
@@ -77,12 +77,12 @@ export const HeaderAlt = () => {
         ) : (
           <MobileNavigation />
         )}
-        <Box>
-          <Center mt="8rem" mb="5rem">
+        <Box mt={{ base: "3rem", md: "6rem" }}>
+          {/* <Center mt="8rem" mb="5rem">
             <Box>
               <Image src="/assets/header/hiring.svg" alt="hiring-button" />
             </Box>
-          </Center>
+          </Center> */}
           <Motiondiv variants={textvariant} initial="start" animate="finished">
             <Center>
               <Text
@@ -110,55 +110,60 @@ export const HeaderAlt = () => {
             </Center>
           </Motiondiv>
           <Center mt="10.0rem">
-            {/* <Motiondiv
-              whileHover={{ scale: 1.2 }}
-              variants={phonevariant}
-              initial="start"
-              animate="finished"
+            <Flex
+              w="90%"
+              justifyContent="space-between"
+              gap={{ base: "2rem", md: "0rem" }}
+              flexDirection={{ base: "column", md: "row" }}
             >
-              <Image src="/assets/header/phones.png" alt="phones" />
-            </Motiondiv> */}
-            <Flex w="90%" justifyContent="space-between">
               <Motiondiv
                 variants={cardvariant}
                 initial="start"
                 animate="finished"
               >
-                <Image
-                  src="/assets/althomepage/header/welder.png"
-                  alt="cards"
-                />
+                <Flex justify={{ base: "center", md: "flex-start" }}>
+                  <Image
+                    src="/assets/althomepage/header/welder.png"
+                    alt="cards"
+                  />
+                </Flex>
               </Motiondiv>
-              <MotionMove
+              <Motiondiv
                 variants={cardvariant1}
                 initial="start"
                 animate="finished"
               >
-                <Image
-                  src="/assets/althomepage/header/tailor.png"
-                  alt="cards"
-                />
-              </MotionMove>
+                <Flex justify={{ base: "center", md: "flex-start" }}>
+                  <Image
+                    src="/assets/althomepage/header/tailor.png"
+                    alt="cards"
+                  />
+                </Flex>
+              </Motiondiv>
               <Motiondiv
                 variants={cardvariant2}
                 initial="start"
                 animate="finished"
               >
-                <Image
-                  src="/assets/althomepage/header/construction.png"
-                  alt="cards"
-                />
+                <Flex justify={{ base: "center", md: "flex-start" }}>
+                  <Image
+                    src="/assets/althomepage/header/construction.png"
+                    alt="cards"
+                  />
+                </Flex>
               </Motiondiv>
-              <MotionMove
+              <Motiondiv
                 variants={cardvariant3}
                 initial="start"
                 animate="finished"
               >
-                <Image
-                  src="/assets/althomepage/header/unknown.png"
-                  alt="cards"
-                />
-              </MotionMove>
+                <Flex justify={{ base: "center", md: "flex-start" }}>
+                  <Image
+                    src="/assets/althomepage/header/unknown.png"
+                    alt="cards"
+                  />
+                </Flex>
+              </Motiondiv>
             </Flex>
           </Center>
         </Box>

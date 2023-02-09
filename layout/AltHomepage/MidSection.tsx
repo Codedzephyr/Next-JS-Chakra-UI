@@ -1,11 +1,11 @@
 import React from "react";
-import ImageDisplay from "../../Components/Homepage/ImageDisplay";
 import { Box } from "@chakra-ui/react";
+import ImageSlideshow from "../../Components/AltHomepage/ImageSlideshow";
 
 const MidSection = () => {
   return (
     <Box>
-      <ImageDisplay />
+      {/* <ImageSlideshow /> */}
     </Box>
   );
 };
