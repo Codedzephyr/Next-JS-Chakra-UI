@@ -1,11 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import { Box, Container, useMediaQuery } from "@chakra-ui/react";
-import { Header } from "../layout/Homepage/Header";
-import ImageDisplay from "../Components/Homepage/ImageDisplay";
+import { HeaderAlt } from "../layout/AltHomepage";
+import MidSection from "../layout/AltHomepage/MidSection";
 
-const Homepage = () => {
-  // const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
+const Artisan = () => {
   return (
     <Box>
       <Head>
@@ -14,11 +13,11 @@ const Homepage = () => {
         <meta name="description" content="Chase your dreams" />
       </Head>
       <Container maxW="160rem" px="0rem">
-        <Header />
-        <ImageDisplay />
+        <HeaderAlt />
+        <MidSection />
       </Container>
     </Box>
   );
 };
 
-export default Homepage;
+export default Artisan;

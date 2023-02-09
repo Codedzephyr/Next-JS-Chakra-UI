@@ -1,19 +1,18 @@
 import { Box, Text, Container, Image, Flex, Center } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import  { useRouter } from "next/router";
 import Head from "next/head";
-import Link from "next/link";
+import { Radio, Stack, RadioGroup } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Home: NextPage = () => {
-  const [isColor, setColor] = useState(false);
-  const [isBackColor, setBackColor] = useState(false);
+  const [value, setValue] = useState("0");
+  const router = useRouter();
 
-  const ChangeColor = () => {
-    setColor(!isColor);
-  };
-
-  const ChangeColor1 = () => {
-    setBackColor(!isBackColor);
+  const onSubmit = () => {
+    if (value === "1") {
+      router.push("/homepage");
+    } else router.push("/artisan");
   };
   return (
     <Box>
@@ -23,108 +22,133 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="160rem">
-        <Box position="relative">
-          <Flex position="absolute" mt="6.5rem" w="100%">
-            <Box flex="46%"></Box>
-            <Flex
-              flex={{ base: "81%", md: "60%", lg: "54%" }}
-              justifyContent="space-between"
+        <Flex justifyContent="center">
+          <Box>
+            <Center>
+              <Image src="/assets/index/anywrk.svg" pt="8.1rem" alt="logo" />
+            </Center>
+            <Text
+              fontFamily="fontbrand.Satoshi"
+              mt="1.5rem"
+              fontWeight="500"
+              fontSize={{
+                base: "3.0rem",
+                md: "4.0rem",
+              }}
             >
-              <Flex>
-                <Text
-                  fontSize="3.0rem"
-                  fontWeight="700"
-                  fontFamily="'Satoshi', sans-serif"
-                  // sx={{isColor  ? color : ""}}
-                  color={isColor ? "#fff" : "#000"}
-                >
-                  Get
-                </Text>
-                <Text
-                  fontSize="3.0rem"
-                  fontWeight="700"
-                  // ml = "2.5rem"
-                  fontFamily="'Satoshi', sans-serif"
-                  color={isBackColor ? "#fff" : "#000"}
-                >
-                  &nbsp;Started
-                </Text>
-              </Flex>
-              <Image src="/assets/close.svg" alt="close-icon" />
-            </Flex>
-          </Flex>
-        </Box>
-        <Flex h="100vh">
-          <Center
-            flex="1"
-            _hover={{
-              background: "brand.CustomerColor",
-            }}
-            cursor="pointer"
-            onMouseEnter={ChangeColor}
-            onMouseLeave={ChangeColor}
-          >
-            <Link href="/homepage">
-              <Box>
-                <Text
-                  fontFamily="'Satoshi', sans-serif"
-                  textAlign="center"
-                  fontSize="2.4rem"
-                >
-                  Sign up
-                </Text>
-                <Text
-                  fontFamily="'Satoshi', sans-serif"
-                  fontSize={{ base: "2.5rem", md: "3.0rem" }}
-                  fontWeight="700"
-                  whiteSpace="nowrap"
-                >
-                  As a customer
-                </Text>
-                <Center>
-                  <Image src="/assets/arrow-right.svg" alt="close-icon" />
-                </Center>
-              </Box>
-            </Link>
-          </Center>
-
-          <Center
-            flex="1"
-            _hover={{
-              background: "brand.ArtisanColor",
-            }}
-            cursor="pointer"
-            onMouseEnter={ChangeColor1}
-            onMouseLeave={ChangeColor1}
-          >
-            <Link href="/homepage">
-              <Box>
-                <Text
-                  fontFamily="'Satoshi', sans-serif"
-                  fontSize="2.4rem"
-                  textAlign="center"
-                >
-                  Sign up
-                </Text>
-                <Text
-                  fontFamily="'Satoshi', sans-serif"
-                  // fontSize="3.0rem"
-                  fontSize={{ base: "2.5rem", md: "3.0rem" }}
-                  fontWeight="700"
-                  whiteSpace="nowrap"
-                >
-                  As an artisan
-                </Text>
-                <Center>
-                  <Image src="/assets/arrow-right.svg" alt="close-icon" />
-                </Center>
-              </Box>
-            </Link>
-          </Center>
+              What describes you?
+            </Text>
+          </Box>
         </Flex>
+        <Center mt="4.0rem">
+          <Box w="47.8rem">
+            <RadioGroup onChange={setValue} value={value}>
+              <Stack spacing="24px">
+                <RadioContent
+                  title="User"
+                  valuestate="1"
+                  description="Get unlimited access to artisans and also insert dummy text here"
+                  colorscheme="blue"
+                />
+                <RadioContent
+                  title="Artisan"
+                  valuestate="2"
+                  description="Get access to individuals / companies that need your expertise"
+                  colorscheme="green"
+                />
+              </Stack>
+            </RadioGroup>
+            <Box
+              onClick={onSubmit}
+              mt="4.0rem"
+              bgColor="brand.primary"
+              borderRadius="10px"
+            >
+              <Text
+                fontFamily="fontbrand.Satoshi"
+                fontWeight="500"
+                py="2.0rem"
+                textAlign="center"
+                fontSize="1.8rem"
+                cursor="pointer"
+                color="brand.white"
+              >
+                Continue
+              </Text>
+            </Box>
+            <Text
+              fontFamily="fontbrand.Satoshi"
+              fontSize="1.8rem"
+              textAlign="center"
+              mt="4.0rem"
+            >
+              Already have an account? Sign in
+            </Text>
+          </Box>
+        </Center>
       </Container>
     </Box>
   );
 };
 
 export default Home;
+
+type radioContentProps = {
+  title: string;
+  valuestate: string;
+  description: string;
+  colorscheme: string;
+};
+
+const RadioContent = ({
+  title,
+  description,
+  colorscheme,
+  valuestate,
+}: radioContentProps) => {
+  return (
+    <Flex p="1.6rem" border="1px" borderColor="#D9D9D9" borderRadius="10px">
+      <Flex gap="1.5rem">
+        <Box>
+          <Radio
+            sx={{
+              width: "3rem",
+              height: "3rem",
+              marginTop: "0.5rem",
+              fontSize: "2.4rem !important",
+            }}
+            value={`${valuestate}`}
+            colorScheme={`${colorscheme}`}
+          />
+        </Box>
+        <Box>
+          <Text
+            fontSize="2.4rem !important"
+            fontFamily="fontbrand.Satoshi"
+            fontWeight="500"
+          >
+            {title}
+          </Text>
+          <Text
+            fontSize="1.8rem"
+            fontFamily="fontbrand.Satoshi"
+            color="color.textRadio"
+          >
+            {description}
+          </Text>
+        </Box>
+      </Flex>
+      <Box>
+        <Radio
+          sx={{
+            width: "2rem",
+            height: "2rem",
+          }}
+          name="1"
+          colorScheme="red"
+          isDisabled
+        />
+      </Box>
+    </Flex>
+  );
+};

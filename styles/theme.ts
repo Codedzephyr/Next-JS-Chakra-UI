@@ -7,32 +7,29 @@ const styles = {
     },
     body: {
       fontSize: "1.4rem",
-      '&::-webkit-scrollbar': {
-        display: 'none'
-      }
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
     },
   },
 };
 
-
 const colors = {
   brand: {
-  CustomerColor: "#8EB1C0",
-  ArtisanColor: "#B38EC0",
-  CleaningColor: "#628D43",
-  ElectricalColor: "#9C9B3E",
-  GardeningColor: "#9C553E",
-  PaintingColor: "#438D77",
-  buttonColor: "#292D32"
+    primary: "#2246A1",
+    text: "#DADADA",
+    white: "#FFFFFF",
+    textRadio : "#858585",
+    buttonColor: "#292D32",
+    trust: "#626161"
   },
 };
-
-
 
 const fonts = {
   fontbrand: {
     Rubik: "'Rubik', sans-serif",
     Poppins: "'Poppins', sans-serif",
+    Satoshi : "'Satoshi', sans-serif"
   },
 };
 
